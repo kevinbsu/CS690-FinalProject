@@ -39,6 +39,7 @@ namespace Project.Backend
                 string removedItem = DataStore.trackerList[idx];
                 DataStore.trackerList.RemoveAt(idx);
 
+                DataStore.docList.RemoveAll(doc => doc.ToLower().StartsWith(name.ToLower() + " |"));
                 Logs.LogFiles($"Item Removed: {removedItem}");
                 FileStore.SaveFiles();
                 ConsoleUI.Print($"[green]Item successfully removed: {removedItem}[/]");
