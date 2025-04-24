@@ -41,6 +41,7 @@ namespace Project.Tests.Backend
             string[] logContent = File.ReadAllLines(filePath);
             bool containsLogMessage = logContent.Any(line => line.Contains($"Item Removed: {name}"));
             Assert.True(containsLogMessage, "Log file with unexpected messages!");
+
         }
 
         [Fact]
