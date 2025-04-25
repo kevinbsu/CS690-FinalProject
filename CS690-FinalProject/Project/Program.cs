@@ -14,6 +14,9 @@ namespace Project
             FileStore.LoadFiles();
 
             ConsoleUI.PrintHeader("Personal Inventory Tracker CLI");
+
+            var userName = AnsiConsole.Ask<string>("Enter your [bold red]user_name[/]: ");
+            AnsiConsole.MarkupLine($"[bold yellow]Welcome[/] to [bold red]{userName}'s[/] [bold yellow]Personal Inventory Tracker System![/]");
             
             ShowMenu();
         }
@@ -25,7 +28,7 @@ namespace Project
             {
                 var userInput = AnsiConsole.Prompt(
                                         new SelectionPrompt<string>()
-                                            .Title("\nSelect your choice: ")
+                                            .Title("\n[yellow]Select your choice:[/] ")
                                             .AddChoices( new[] {
                                                 "Create Item",
                                                 "Remove Item",
@@ -87,8 +90,8 @@ namespace Project
 
             string store = ConsoleUI.Ask("Enter store detail: ");
             string category = ConsoleUI.Ask("Enter category detail: ");
-            string price = ConsoleUI.Ask("Enter price ($): ");
-            string date = ConsoleUI.Ask("Enter purchase date (MM-DD-YYYY): ");
+            string price = ConsoleUI.Ask("Enter price [yellow]($)[/]: ");
+            string date = ConsoleUI.Ask("Enter purchase date [red](MM-DD-YYYY)[/]: ");
 
             string eachItem = $"{name} | {store} | {category} | {price} | {date} \n";
             DataStore.trackerList.Add(eachItem);
