@@ -62,8 +62,8 @@ namespace Project.Backend
             if (itemStatus != null)
             {
                 string itemType = ConsoleUI.Ask("Enter the document category ([bold yellow]Policy, Warranty[/]): ");
-                string itemDescription = ConsoleUI.Ask("Description: ");
-                string expireDate = ConsoleUI.Ask("Expire Date [red](MM-DD-YYYY)[/]: ");
+                string itemDescription = ConsoleUI.Ask("Enter the description: ");
+                string expireDate = ConsoleUI.Ask("Enter the expire date [red](MM-DD-YYYY)[/]: ");
 
                 string eachDocument = $"{name} | {itemType} | {itemDescription} | {expireDate} \n";
                 DataStore.docList.Add(eachDocument);
